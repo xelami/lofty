@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ============================================================
+   LOFTY DESIGN SYSTEM
+   ============================================================ */
+
+@theme {
+  /* ==========================================================
+     CORE
+     ========================================================== */
+
+  --color-lofty-bg: #f2f0eb;
+  --color-lofty-surface: #ffffff;
+  --color-lofty-surface-soft: #ffffff73;
+
+  --color-lofty-ink: #171918;
+  --color-lofty-ink-soft: #181a19;
+
+  /* ==========================================================
+     BRAND / PRIMARY
+     ========================================================== */
+
+  --color-lofty-blue: #6878a9;
+  --color-lofty-blue-soft: #7185aa;
+  --color-lofty-blue-pale: #d8dff1;
+
+  /* ==========================================================
+     PASTELS
+     ========================================================== */
+
+  /* Lavender */
+
+  --color-lofty-lavender: #f5d0ff;
+  --color-lofty-lavender-soft: #f1c7ff;
+
+  /* Pink */
+
+  --color-lofty-pink: #f5d2e9;
+  --color-lofty-pink-soft: #f29b9b;
+
+  /* Yellow */
+
+  --color-lofty-yellow: #fff2b5;
+  --color-lofty-yellow-soft: #fff4c8;
+  --color-lofty-yellow-muted: #f0cc82;
+
+  /* Green */
+
+  --color-lofty-green: #72c48b;
+  --color-lofty-green-soft: #91d09d;
+  --color-lofty-green-pale: #c8ffe0;
+
+  /* Sage */
+
+  --color-lofty-sage: #c5ffdc;
+
+  /* Sky */
+
+  --color-lofty-sky: #c9dcf5;
+  --color-lofty-sky-strong: #71b8ff;
+
+  /* Peach */
+
+  --color-lofty-peach: #f7c8a8;
+  --color-lofty-peach-dark: #d98989;
+
+  /* Purple */
+
+  --color-lofty-purple: #d0b9d8;
+
+  /* ==========================================================
+     DESKTOP / OS COLOURS
+     ========================================================== */
+
+  --color-lofty-desktop-purple: #17152c;
+  --color-lofty-desktop-indigo: #40366d;
+
+  --color-lofty-desktop-teal: #234d50;
+  --color-lofty-desktop-blue: #467c9c;
+
+  --color-lofty-window: #e8e8e4;
+  --color-lofty-window-dark: #e9e9e7;
+
+  /* ==========================================================
+     WINDOW CONTROLS
+     ========================================================== */
+
+  --color-lofty-close: #ee9999;
+  --color-lofty-minimize: #efd08c;
+  --color-lofty-maximize: #92cf9e;
+
+  /* ==========================================================
+     SEMANTIC
+     ========================================================== */
+
+  --color-lofty-success: #72c48b;
+  --color-lofty-danger: #ee9999;
+  --color-lofty-warning: #efd08c;
+
+  /* ==========================================================
+     BORDERS
+     ========================================================== */
+
+  --color-lofty-border: #1719181a;
+  --color-lofty-border-soft: #1719180d;
+
+  /* ==========================================================
+     SHADOWS
+     ========================================================== */
+
+  --shadow-lofty-sm: 0 2px 8px rgba(30, 30, 30, 0.08);
+
+  --shadow-lofty-md: 0 10px 30px rgba(30, 30, 30, 0.1);
+
+  --shadow-lofty-lg: 0 25px 60px rgba(30, 30, 30, 0.16);
+
+  --shadow-lofty-xl: 0 25px 60px rgba(30, 30, 30, 0.2);
+
+  --shadow-lofty-offset: 5px 5px 0 rgba(0, 0, 0, 0.14);
+
+  --shadow-lofty-offset-sm: 3px 3px 0 rgba(0, 0, 0, 0.15);
+
+  /* ==========================================================
+     WALLPAPERS
+     ========================================================== */
+
+  --background-image-lofty-night:
+    radial-gradient(circle at 25% 20%, #f5d0ff, transparent 32%),
+    radial-gradient(circle at 80% 70%, #6c63ff, transparent 35%),
+    linear-gradient(135deg, #17152c, #40366d);
+
+  --background-image-lofty-project:
+    radial-gradient(circle at 70% 20%, #fff2b5, transparent 28%),
+    radial-gradient(circle at 20% 80%, #ff9e9e, transparent 35%),
+    linear-gradient(135deg, #f7c8a8, #d98989);
+
+  --background-image-lofty-loft:
+    radial-gradient(circle at 30% 30%, #c5ffdc, transparent 30%),
+    radial-gradient(circle at 80% 80%, #71b8ff, transparent 35%),
+    linear-gradient(135deg, #234d50, #467c9c);
+
+  --background-image-lofty-studio: linear-gradient(
+    135deg,
+    #6e668f,
+    #a990b2,
+    #e1b7ac
+  );
+
+  /* ==========================================================
+     GRADIENTS
+     ========================================================== */
+
+  --background-image-lofty-window: linear-gradient(to bottom, #ffffff, #e9e9e7);
+
+  --background-image-lofty-window-soft: linear-gradient(
+    to bottom,
+    #ffffff,
+    #e8e9e8
+  );
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-lofty-bg);
+  color: var(--color-lofty-ink);
+}

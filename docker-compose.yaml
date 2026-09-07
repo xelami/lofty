@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: lofty-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lofty
+      POSTGRES_PASSWORD: lofty
+      POSTGRES_DB: lofty
+    ports:
+      - "5432:5432"
+    volumes:
+      - lofty-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  lofty-postgres-data:
