@@ -17,8 +17,10 @@ const app = Fastify({
   logger: true,
 })
 
+const allowedOrigins = ["http://localhost:5173", "https://lofty.social"]
+
 await app.register(cors, {
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true,
   methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
 })
@@ -27,39 +29,41 @@ await app.register(cookie)
 
 await app.register(authPlugin)
 
+const API_PREFIX = process.env.API_PREFIX || "/api/v1"
+
 await app.register(authRoutes, {
-  prefix: "/api/v1/auth",
+  prefix: `${API_PREFIX}/auth`,
 })
 
 await app.register(oauthRoutes, {
-  prefix: "/api/v1/auth",
+  prefix: `${API_PREFIX}/auth`,
 })
 
 await app.register(profileRoutes, {
-  prefix: "/api/v1/profiles",
+  prefix: `${API_PREFIX}/profiles`,
 })
 
 await app.register(desktopRoutes, {
-  prefix: "/api/v1/desktops",
+  prefix: `${API_PREFIX}/desktops`,
 })
 
 await app.register(folderRoutes, {
-  prefix: "/api/v1/desktops",
+  prefix: `${API_PREFIX}/desktops`,
 })
 
 await app.register(fileRoutes, {
-  prefix: "/api/v1/desktops",
+  prefix: `${API_PREFIX}/desktops`,
 })
 
 await app.register(memberRoutes, {
-  prefix: "/api/v1/desktops",
+  prefix: `${API_PREFIX}/desktops`,
 })
 
 await app.register(realtimeRoutes, {
-  prefix: "/api/v1/desktops",
+  prefix: `${API_PREFIX}/desktops`,
 })
 
-app.get("/api/v1/health", async () => {
+app.get(`${API_PREFIX}/health`, async () => {
   return {
     status: "ok",
     service: "lofty-api",
