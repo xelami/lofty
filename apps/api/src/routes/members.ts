@@ -205,6 +205,18 @@ export async function memberRoutes(app: FastifyInstance) {
       })
     }
 
+    if (!user.email || !user.name) {
+      return reply.status(400).send({
+        error: "This user has not completed their profile",
+      })
+    }
+
+    if (!request.user.name) {
+      return reply.status(400).send({
+        error: "Please set your name before inviting members",
+      })
+    }
+
     try {
       await sendDesktopInvitation({
         recipientEmail: user.email,

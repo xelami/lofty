@@ -264,7 +264,17 @@ export async function fileRoutes(app: FastifyInstance) {
     if (file) {
       broadcastEvent(desktopId, {
         type: "file.created",
-        file,
+        file: {
+          id: file.id,
+          desktopId: file.desktopId,
+          folderId: file.folderId,
+          name: file.name,
+          mimeType: file.mimeType,
+          size: file.size,
+          createdBy: file.createdBy as string,
+          createdAt: file.createdAt,
+          updatedAt: file.updatedAt,
+        },
       })
     }
 
@@ -431,7 +441,18 @@ export async function fileRoutes(app: FastifyInstance) {
     if (updatedFile) {
       broadcastEvent(desktopId, {
         type: "file.updated",
-        file: updatedFile,
+
+        file: {
+          id: updatedFile.id,
+          desktopId: updatedFile.desktopId,
+          folderId: updatedFile.folderId,
+          name: updatedFile.name,
+          mimeType: updatedFile.mimeType,
+          size: updatedFile.size,
+          createdBy: updatedFile.createdBy as string,
+          createdAt: updatedFile.createdAt,
+          updatedAt: updatedFile.updatedAt,
+        },
       })
     }
 

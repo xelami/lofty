@@ -2,8 +2,8 @@ import { apiFetch } from "./client"
 
 export type DesktopMember = {
   userId: string
-  name: string
-  email: string
+  name: string | null
+  email: string | null
   role: "owner" | "editor" | "viewer"
   joinedAt: string
 }

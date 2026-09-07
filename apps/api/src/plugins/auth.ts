@@ -7,9 +7,9 @@ declare module "fastify" {
   interface FastifyRequest {
     user: {
       id: string
-      name: string
-      email: string
-      passwordHash: string
+      name: string | null
+      email: string | null
+      passwordHash: string | null
       createdAt: Date
     } | null
   }
