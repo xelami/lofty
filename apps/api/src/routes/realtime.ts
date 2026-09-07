@@ -28,10 +28,18 @@ export async function realtimeRoutes(app: FastifyInstance) {
       }
 
       /*
-       * request.user comes from your existing auth plugin.
+       * request.user comes from the existing auth plugin.
        */
       if (!request.user) {
         socket.close(1008, "Not authenticated")
+        return
+      }
+
+      /*
+       * Realtime presence requires a display name.
+       */
+      if (!request.user.name) {
+        socket.close(1008, "Please set your name before connecting")
         return
       }
 
@@ -99,19 +107,6 @@ export async function realtimeRoutes(app: FastifyInstance) {
         socket as WebSocket,
       )
 
-      /*
-       * Handle messages from the client.
-       *
-       * We'll expand this later for:
-       *
-       * cursor.move
-       * folder.created
-       * folder.updated
-       * folder.deleted
-       * file.created
-       * file.updated
-       * file.deleted
-       */
       socket.on("message", (raw: any) => {
         try {
           const message = JSON.parse(raw.toString())
@@ -122,7 +117,6 @@ export async function realtimeRoutes(app: FastifyInstance) {
 
           console.log("📨 REALTIME MESSAGE", {
             desktopId,
-
             message,
           })
 
