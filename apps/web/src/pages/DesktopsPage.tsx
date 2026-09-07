@@ -20,12 +20,10 @@ import { useAuthStore } from "../auth/authStore"
 
 export function DesktopsPage() {
   const user = useAuthStore((state) => state.user)
-  const logout = useAuthStore((state) => state.logout)
 
   const [desktops, setDesktops] = useState<Desktop[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [loggingOut, setLoggingOut] = useState(false)
 
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [desktopName, setDesktopName] = useState("")
@@ -331,14 +329,6 @@ export function DesktopsPage() {
   )
 
   const selectedMember = selectedTransferMember()
-
-  const initials =
-    user?.name
-      ?.split(" ")
-      .map((part) => part[0])
-      .join("")
-      .slice(0, 2)
-      .toUpperCase() ?? "U"
 
   return (
     <div className="min-h-screen bg-lofty-bg text-lofty-ink">
