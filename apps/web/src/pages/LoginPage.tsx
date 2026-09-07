@@ -103,7 +103,7 @@ export function LoginPage() {
             )}
 
             <a
-              href="http://localhost:3001/api/v1/auth/google"
+              href="https://api.lofty.social/v1/auth/google"
               className="flex w-full items-center justify-center gap-3 rounded-xl border border-(--border) bg-white px-4 py-3.5 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-50"
             >
               <span className="flex h-5 w-5 items-center justify-center text-sm font-bold">
